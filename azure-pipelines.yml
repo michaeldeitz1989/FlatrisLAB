@@ -1,21 +1,19 @@
-# Node.js with React
-# Build a Node.js project that uses React.
-# Add steps that analyze code, save build artifacts, deploy, and more:
-# https://docs.microsoft.com/azure/devops/pipelines/languages/javascript
-
+# Trigger pipeline on changes to the main branch
 trigger:
-- master
+- main
 
+# Use your self-hosted agent pool
+# Replace 'Default' with your pool name if different
 pool:
-  vmImage: ubuntu-latest
+  name: Default
 
 steps:
-- task: NodeTool@0
-  inputs:
-    versionSpec: '20.x'
-  displayName: 'Install Node.js'
+# Step 1: Run a simple one-line script
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
 
+# Step 2: Run a multi-line script
 - script: |
-    npm install
-    npm run build
-  displayName: 'npm install and build'
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
